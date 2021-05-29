@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/menu"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="240dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="#C0EBFF"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="메뉴 닫기"
+        android:layout_margin="10dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/profile_btn"
+            android:text="MY프로필"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginBottom="20dp"/>
+        <Button
+            android:text="친구 추가"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"/>
+        <Button
+            android:text="파티원 구하기"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/Chatting"/>
+        <Button
+            android:text="시사게/시사토론"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"/>
+        <Button
+            android:text="자유게시판"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"/>
+        <Button
+            android:text="연애 상담/과금"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"/>
+
+
+    </LinearLayout>
+    <Button
+        android:text="설정"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
+
+</LinearLayout>
