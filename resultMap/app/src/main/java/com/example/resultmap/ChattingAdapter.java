@@ -1,12 +1,11 @@
 package com.example.resultmap;
 
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,10 +26,9 @@ public class ChattingAdapter extends RecyclerView.Adapter<ChattingAdapter.Custom
 
     @NonNull
     @Override
-    public ChattingAdapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public com.example.resultmap.ChattingAdapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        inOut = viewType;
-        if(viewType == 0)
+        if(inOut == 0)
         {
             if(imgCheck == 1)
             {
@@ -44,7 +42,7 @@ public class ChattingAdapter extends RecyclerView.Adapter<ChattingAdapter.Custom
             }
 
 
-        } else if(viewType == 2)
+        } else if(inOut == 2)
         {
             View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.chatting_in_out,parent,false);
             CustomViewHolder holder = new CustomViewHolder(view);
@@ -64,8 +62,6 @@ public class ChattingAdapter extends RecyclerView.Adapter<ChattingAdapter.Custom
                 return holder;
             }
 
-//            CustomViewHolder holder = new CustomViewHolder(view);
-//            return holder;
         }
 
 
@@ -76,7 +72,7 @@ public class ChattingAdapter extends RecyclerView.Adapter<ChattingAdapter.Custom
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChattingAdapter.CustomViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull com.example.resultmap.ChattingAdapter.CustomViewHolder holder, int position) {
 
         if(inOut == 2)
         {
@@ -97,14 +93,6 @@ public class ChattingAdapter extends RecyclerView.Adapter<ChattingAdapter.Custom
             holder.nickName.setText(arrayList.get(position).getNickName());
 
 
-//            holder.itemView.setTag(position);
-//            holder.itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    String curNickName= holder.nickName.getText().toString();
-//                    Toast.makeText(v.getContext(),curNickName,Toast.LENGTH_SHORT).show();
-//                }
-//            });
         }
 
 
@@ -117,15 +105,7 @@ public class ChattingAdapter extends RecyclerView.Adapter<ChattingAdapter.Custom
         return (null != arrayList ? arrayList.size() : 0);
     }
 
-//    public void remove(int position)
-//    {
-//        try{
-//            arrayList.remove(position);
-//            notifyItemRemoved(position);
-//        } catch(IndexOutOfBoundsException e) {
-//            e.printStackTrace();
-//        }
-//    }
+
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {
 
@@ -147,15 +127,18 @@ public class ChattingAdapter extends RecyclerView.Adapter<ChattingAdapter.Custom
 
     @Override
     public int getItemViewType(int position) {
+
         ChattingData chattingData=arrayList.get(position);
         imgCheck = chattingData.getImgCheck();
-        System.out.println("getItemViewType에서 imgCheck : " + imgCheck);
 
-        if (chattingData.getInOut() == 2)
-            return 2;
+
+        if(chattingData.getInOut() == 2)
+            inOut=2;
         else if (chattingData.getNickName().equals(chattingData.getMyName()))
-            return 1;
+            inOut=1;
         else
-            return 0;
+            inOut=0;
+        System.out.println("getItemViewType에서 imgCheck : " + imgCheck);
+        return position;
     }
 }
