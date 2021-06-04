@@ -36,8 +36,7 @@
             android:text="파티원 구하기"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:id="@+id/Chatting"/>
+            android:layout_height="60dp"/>
         <Button
             android:text="시사게/시사토론"
             android:layout_marginTop="15dp"
